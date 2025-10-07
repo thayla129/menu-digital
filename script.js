@@ -1,0 +1,184 @@
+// Navigation functionality
+const menuToggle = document.getElementById("menuToggle")
+const navLinks = document.getElementById("navLinks")
+const navMenu = document.getElementById("navMenu")
+const backToTop = document.getElementById("backToTop")
+
+// Toggle mobile menu
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active")
+
+  // Animate hamburger icon
+  const spans = menuToggle.querySelectorAll("span")
+  if (navLinks.classList.contains("active")) {
+    spans[0].style.transform = "rotate(45deg) translateY(10px)"
+    spans[1].style.opacity = "0"
+    spans[2].style.transform = "rotate(-45deg) translateY(-10px)"
+  } else {
+    spans[0].style.transform = "none"
+    spans[1].style.opacity = "1"
+    spans[2].style.transform = "none"
+  }
+})
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active")
+    const spans = menuToggle.querySelectorAll("span")
+    spans[0].style.transform = "none"
+    spans[1].style.opacity = "1"
+    spans[2].style.transform = "none"
+  })
+})
+
+// Active navigation link on scroll
+const sections = document.querySelectorAll("section[id]")
+const navLinksArray = document.querySelectorAll(".nav-link")
+
+function updateActiveLink() {
+  const scrollY = window.pageYOffset
+
+  sections.forEach((section) => {
+    const sectionHeight = section.offsetHeight
+    const sectionTop = section.offsetTop - 100
+    const sectionId = section.getAttribute("id")
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      navLinksArray.forEach((link) => {
+        link.classList.remove("active")
+        // CORREÇÃO 1: Adicionado o acento grave (`) para template literal
+        if (link.getAttribute("href") === `#${sectionId}`) { 
+          link.classList.add("active")
+        }
+      })
+    }
+  })
+}
+
+
+// Scroll effects
+let lastScroll = 0
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset
+
+  // Add scrolled class to nav
+  if (currentScroll > 100) {
+    navMenu.classList.add("scrolled")
+  } else {
+    navMenu.classList.remove("scrolled")
+  }
+
+  // Show/hide back to top button
+  if (currentScroll > 500) {
+    backToTop.classList.add("visible")
+  } else {
+    backToTop.classList.remove("visible")
+  }
+
+  // Update active navigation link
+  updateActiveLink()
+
+  lastScroll = currentScroll
+})
+
+// Back to top functionality
+backToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  })
+})
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault()
+    const target = document.querySelector(this.getAttribute("href"))
+
+    if (target) {
+      const offsetTop = target.offsetTop - 80
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      })
+    }
+  })
+})
+
+// Intersection Observer for fade-in animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1"
+      entry.target.style.transform = "translateY(0)"
+    }
+  })
+}, observerOptions)
+
+// Observe all menu items
+document.querySelectorAll(".menu-item, .drink-item").forEach((item) => {
+  item.style.opacity = "0"
+  item.style.transform = "translateY(30px)"
+  item.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out"
+  observer.observe(item)
+})
+
+// Add hover effect sound (optional - can be enabled with actual sound files)
+const menuItems = document.querySelectorAll(".menu-item")
+
+menuItems.forEach((item) => {
+  item.addEventListener("mouseenter", () => {
+    // Add subtle scale effect
+    item.style.transition = "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+  })
+})
+
+// Parallax effect for hero section
+window.addEventListener("scroll", () => {
+  const scrolled = window.pageYOffset
+  const heroContent = document.querySelector(".hero-content")
+
+  if (heroContent && scrolled < window.innerHeight) {
+    // CORREÇÃO 2: Adicionado o acento grave (`) para template literal
+    heroContent.style.transform = `translateY(${scrolled * 0.5}px)`
+    heroContent.style.opacity = 1 - scrolled / 500
+  }
+})
+
+// Add loading animation
+window.addEventListener("load", () => {
+  document.body.style.opacity = "0"
+  setTimeout(() => {
+    document.body.style.transition = "opacity 0.5s ease-in"
+    document.body.style.opacity = "1"
+  }, 100)
+})
+
+// Price update functionality (for admin use)
+function updatePrice(itemName, newPrice) {
+  const items = document.querySelectorAll(".menu-item, .drink-item")
+  items.forEach((item) => {
+    const name = item.querySelector(".item-name, .drink-name")
+    if (name && name.textContent === itemName) {
+      const priceElement = item.querySelector(".item-price")
+      if (priceElement) {
+        // CORREÇÃO 3: Adicionado o acento grave (`) para template literal
+        priceElement.textContent = `R$ ${newPrice}`
+      }
+    }
+  })
+}
+
+// Console message for developers
+console.log("%c🍷 Adega do Chefe - Cardápio Digital", "color: #d4af37; font-size: 20px; font-weight: bold;")
+console.log("%cDesenvolvido com ❤️ para proporcionar a melhor experiência", "color: #f5f5dc; font-size: 12px;")
+
+// Initialize
+updateActiveLink()
