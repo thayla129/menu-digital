@@ -10,10 +10,12 @@
     --color-gold-light: #f4d03f;
     --color-gold-dark: #b8941f;
     --color-white: #ffffff;
+    --color-white-soft: #f8f8f8;
     --color-cream: #f5f5dc;
     --color-gray-dark: #1a1a1a;
     --color-gray-medium: #2a2a2a;
     --color-gray-light: #3a3a3a;
+    --color-accent: #e8e8e8;
   
     --font-heading: "Playfair Display", serif;
     --font-body: "Montserrat", sans-serif;
@@ -66,12 +68,15 @@
   
   .nav-logo {
     height: 60px;
-    width: auto;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
     transition: var(--transition-smooth);
   }
   
   .nav-menu.scrolled .nav-logo {
     height: 50px;
+    width: 50px;
   }
   
   .menu-toggle {
@@ -194,7 +199,9 @@
   
   .hero-logo {
     width: 200px;
-    height: auto;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 2rem;
     filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
     animation: float 3s ease-in-out infinite;
@@ -556,11 +563,13 @@
   
   .thank-you-logo {
     width: 180px;
-    height: auto;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 2rem;
     filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
   }
-  
+
   .thank-you-title {
     font-family: var(--font-heading);
     font-size: 3rem;
@@ -568,7 +577,7 @@
     margin-bottom: 2rem;
     font-weight: 700;
   }
-  
+
   .thank-you-text {
     font-size: 1.2rem;
     color: var(--color-cream);
@@ -756,7 +765,6 @@
       font-size: 0.9rem;
     }
   }
-  
   /* Loading Animation */
   @keyframes fadeIn {
     from {
@@ -771,7 +779,225 @@
   .drink-item {
     animation: fadeIn 0.6s ease-out;
   }
-  
+
+  /* White accent sections */
+  .white-accent .section-title {
+    color: var(--color-white-soft);
+  }
+
+  .white-accent .ornament-top,
+  .white-accent .diamond,
+  .white-accent .ornament-left,
+  .white-accent .ornament-right,
+  .white-accent .ornament-center {
+    color: var(--color-white-soft);
+  }
+
+  .white-accent .line {
+    background: var(--color-white-soft);
+  }
+
+  .white-accent .item-name,
+  .white-accent .drink-name {
+    color: var(--color-white-soft);
+  }
+
+  .white-accent .item-price {
+    color: var(--color-white-soft);
+  }
+
+  .white-accent .dots {
+    background-image: linear-gradient(to right, var(--color-white-soft) 50%, transparent 50%);
+  }
+
+  .white-accent .menu-item {
+    border-color: rgba(248, 248, 248, 0.2);
+  }
+
+  .white-accent .menu-item:hover {
+    border-color: var(--color-white-soft);
+    box-shadow: 0 20px 40px rgba(248, 248, 248, 0.1);
+  }
+
+  .white-accent .drinks-column {
+    border-color: rgba(248, 248, 248, 0.2);
+  }
+
+  .white-accent .drink-item {
+    border-bottom-color: rgba(248, 248, 248, 0.1);
+  }
+
+  /* Search and Filter Functionality */
+  .search-filter-container {
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .search-box {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 1rem 1.5rem 1rem 3rem;
+    background: rgba(26, 26, 26, 0.8);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50px;
+    color: var(--color-white);
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--color-gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-gold);
+    font-size: 1.2rem;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 0.8rem 1.5rem;
+    background: rgba(26, 26, 26, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 25px;
+    color: var(--color-white);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: var(--color-gold);
+    color: var(--color-black);
+    border-color: var(--color-gold);
+    transform: translateY(-2px);
+  }
+
+  .menu-item.hidden {
+    display: none;
+  }
+
+  /* Instagram Modal */
+  .instagram-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+  }
+
+  .instagram-modal.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    background: linear-gradient(135deg, var(--color-gray-dark) 0%, var(--color-black) 100%);
+    border: 2px solid var(--color-gold);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    animation: modalSlideIn 0.5s ease-out;
+  }
+
+  @keyframes modalSlideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+  }
+
+  .modal-close:hover {
+    color: var(--color-gold);
+    transform: scale(1.1);
+  }
+
+  .modal-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  .modal-instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 30px rgba(188, 24, 136, 0.3);
+  }
+
+  .modal-instagram-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(188, 24, 136, 0.5);
+  }
+
+  .instagram-icon {
+    width: 24px;
+    height: 24px;
+  }
+
   /* Smooth Scrolling Enhancement */
   @media (prefers-reduced-motion: no-preference) {
     html {
