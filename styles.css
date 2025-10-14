@@ -6,7 +6,7 @@
   
   :root {
     --color-black: #0a0a0a;
-    --color-gold: #d4af37;
+    --color-gold: #fff8df;
     --color-gold-light: #f4d03f;
     --color-gold-dark: #b8941f;
     --color-white: #ffffff;
@@ -221,10 +221,10 @@
     font-family: var(--font-heading);
     font-size: 4rem;
     font-weight: 700;
-    color: var(--color-gold);
+    color: var(--color-white);
     margin-bottom: 1rem;
     letter-spacing: 2px;
-    text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
   }
   
   .ornament-divider {
@@ -233,7 +233,7 @@
     justify-content: center;
     gap: 1rem;
     margin: 2rem 0;
-    color: var(--color-gold);
+    color: var(--color-white);
   }
   
   .ornament-left,
@@ -269,12 +269,12 @@
   .line {
     width: 60px;
     height: 1px;
-    background: var(--color-gold);
+    background: var(--color-white);
   }
   
   .diamond {
     font-size: 1.2rem;
-    color: var(--color-gold);
+    color: var(--color-white);
   }
   
   .hero-subtitle {
@@ -364,7 +364,7 @@
   
   .ornament-top {
     font-size: 2rem;
-    color: var(--color-gold);
+    color: var(--color-white);
     margin-bottom: 1rem;
     animation: sparkle 2s ease-in-out infinite;
   }
@@ -373,7 +373,7 @@
     font-family: var(--font-heading);
     font-size: 3.5rem;
     font-weight: 700;
-    color: var(--color-gold);
+    color: var(--color-white);
     margin-bottom: 1.5rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -428,7 +428,7 @@
   .item-name {
     font-family: var(--font-heading);
     font-size: 1.8rem;
-    color: var(--color-gold);
+    color: var(--color-white);
     margin-bottom: 0.5rem;
     font-weight: 600;
   }
@@ -450,7 +450,7 @@
   .dots {
     flex: 1;
     height: 1px;
-    background-image: linear-gradient(to right, var(--color-gold) 50%, transparent 50%);
+    background-image: linear-gradient(to right, var(--color-white) 50%, transparent 50%);
     background-size: 8px 1px;
     background-repeat: repeat-x;
   }
@@ -458,7 +458,7 @@
   .item-price {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    color: var(--color-gold);
+    color: var(--color-white);
     font-weight: 600;
     white-space: nowrap;
   }
@@ -493,7 +493,7 @@
   .drink-name {
     font-family: var(--font-heading);
     font-size: 1.6rem;
-    color: var(--color-gold);
+    color: var(--color-white);
     margin-bottom: 0.5rem;
     font-weight: 600;
   }
@@ -573,7 +573,7 @@
   .thank-you-title {
     font-family: var(--font-heading);
     font-size: 3rem;
-    color: var(--color-gold);
+    color: var(--color-white);
     margin-bottom: 2rem;
     font-weight: 700;
   }
@@ -622,7 +622,7 @@
   .hashtag {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    color: var(--color-gold);
+    color: var(--color-white);
     margin-top: 2rem;
     font-weight: 600;
     letter-spacing: 2px;
@@ -996,6 +996,198 @@
   .instagram-icon {
     width: 24px;
     height: 24px;
+  }
+
+  /* Bordado Wine Menu Styles */
+  .bordado-style {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    padding: 4rem 2rem;
+  }
+
+  .bordado-logo {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .bordado-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--color-white);
+    letter-spacing: 8px;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .bordado-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: var(--color-cream);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  .wine-category {
+    margin-bottom: 4rem;
+    background: rgba(26, 26, 26, 0.4);
+    border-radius: 20px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .category-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-white), transparent);
+  }
+
+  .wine-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .wine-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+  }
+
+  .wine-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .wine-image {
+    flex-shrink: 0;
+    width: 80px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .wine-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+  }
+
+  .wine-item:hover .wine-image img {
+    transform: scale(1.1);
+  }
+
+  .wine-details {
+    flex: 1;
+  }
+
+  .wine-name {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--color-white);
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+  }
+
+  .wine-prices {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .price-small,
+  .price-large {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-white);
+  }
+
+  .price-small {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+
+  .price-large {
+    font-size: 1.3rem;
+  }
+
+  /* Interactive hover effects */
+  .wine-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    opacity: 0;
+    transition: var(--transition-smooth);
+    border-radius: 15px;
+  }
+
+  .wine-item:hover::before {
+    opacity: 1;
+  }
+
+  /* Responsive adjustments for Bordado style */
+  @media (max-width: 768px) {
+    .bordado-title {
+      font-size: 2.5rem;
+      letter-spacing: 4px;
+    }
+    
+    .bordado-subtitle {
+      font-size: 1rem;
+      letter-spacing: 2px;
+    }
+    
+    .wine-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+    
+    .wine-image {
+      width: 120px;
+      height: 150px;
+    }
+    
+    .category-title {
+      font-size: 2rem;
+    }
   }
 
   /* Smooth Scrolling Enhancement */
