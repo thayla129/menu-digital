@@ -180,5 +180,56 @@ function updatePrice(itemName, newPrice) {
 console.log("%c🍷 Adega do Chefe - Cardápio Digital", "color: #d4af37; font-size: 20px; font-weight: bold;")
 console.log("%cDesenvolvido com ❤️ para proporcionar a melhor experiência", "color: #f5f5dc; font-size: 12px;")
 
+// Instagram link functionality
+function openInstagram() {
+  const username = 'bordado.bar'
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  
+  if (isMobile) {
+    // Try to open Instagram app first
+    const instagramApp = `instagram://user?username=${username}`
+    const instagramWeb = `https://www.instagram.com/${username}/`
+    
+    // Create a hidden iframe to attempt opening the app
+    const iframe = document.createElement('iframe')
+    iframe.style.display = 'none'
+    iframe.src = instagramApp
+    document.body.appendChild(iframe)
+    
+    // Fallback to web version after a short delay
+    setTimeout(() => {
+      document.body.removeChild(iframe)
+      window.open(instagramWeb, '_blank')
+    }, 1000)
+  } else {
+    // Desktop - open web version
+    window.open(`https://www.instagram.com/${username}/`, '_blank')
+  }
+}
+
+// Add interactive wine item effects
+document.addEventListener('DOMContentLoaded', () => {
+  const wineItems = document.querySelectorAll('.wine-item')
+  
+  wineItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      // Add subtle animation on hover
+      item.style.transform = 'translateY(-5px) scale(1.02)'
+    })
+    
+    item.addEventListener('mouseleave', () => {
+      item.style.transform = 'translateY(0) scale(1)'
+    })
+    
+    // Add click effect for mobile
+    item.addEventListener('click', () => {
+      item.style.transform = 'scale(0.98)'
+      setTimeout(() => {
+        item.style.transform = 'translateY(0) scale(1)'
+      }, 150)
+    })
+  })
+})
+
 // Initialize
 updateActiveLink()
