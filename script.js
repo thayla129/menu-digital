@@ -182,7 +182,7 @@ console.log("%cDesenvolvido com ❤️ para proporcionar a melhor experiência",
 
 // Instagram link functionality
 function openInstagram() {
-  const username = 'bordado.bar'
+  const username = 'adega_dochefe01'
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
   
   if (isMobile) {
