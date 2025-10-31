@@ -692,6 +692,97 @@
     height: 24px;
   }
   
+  .establishment-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(26, 26, 26, 0.6);
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  
+  .detail-item h4 {
+    font-family: var(--font-heading);
+    color: var(--color-gold);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .detail-item p {
+    color: var(--color-cream);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .legal-info {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+  
+  .disclaimer {
+    color: #ffcccc;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0.3rem 0;
+    font-weight: 500;
+  }
+  
+  .policies-section {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: rgba(26, 26, 26, 0.8);
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+  }
+  
+  .policies-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-gold);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+  
+  .policies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .policy-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: var(--transition-smooth);
+  }
+  
+  .policy-item:hover {
+    border-color: var(--color-gold);
+    transform: translateY(-5px);
+  }
+  
+  .policy-item h4 {
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .policy-item p {
+    color: var(--color-cream);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
   .hashtag {
     font-family: var(--font-heading);
     font-size: 1.5rem;
@@ -1364,6 +1455,47 @@
     .cta-button {
       padding: 1rem 2rem;
       font-size: 1rem;
+    }
+    
+    .establishment-details {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+    }
+    
+    .detail-item h4 {
+      font-size: 1.1rem;
+    }
+    
+    .detail-item p {
+      font-size: 0.9rem;
+    }
+    
+    .policies-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+    }
+    
+    .policies-title {
+      font-size: 1.5rem;
+    }
+    
+    .policies-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .policy-item {
+      padding: 1rem;
+    }
+    
+    .policy-item h4 {
+      font-size: 1rem;
+    }
+    
+    .policy-item p {
+      font-size: 0.85rem;
     }
   }
   
