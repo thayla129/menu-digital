@@ -441,6 +441,21 @@
     min-height: 250px;
     max-height: 250px;
   }
+
+  /* Standard menu image sizing for consistent professional appearance */
+  .standard-menu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: var(--transition-slow);
+    border-radius: 0;
+    min-height: 200px;
+    max-height: 200px;
+    background: var(--color-gray-light);
+    padding: 10px;
+    box-sizing: border-box;
+  }
   
   .menu-item:hover .item-image-placeholder img {
     transform: scale(1.1);
