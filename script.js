@@ -207,6 +207,34 @@ function openInstagram() {
   }
 }
 
+// WhatsApp link functionality
+function openWhatsApp() {
+  const phoneNumber = '5511959340479'
+  const message = 'Olá! Vi o cardápio da Adega do Chefe e gostaria de fazer um pedido.'
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  
+  if (isMobile) {
+    // Try to open WhatsApp app first
+    const whatsappApp = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`
+    const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    
+    // Create a hidden iframe to attempt opening the app
+    const iframe = document.createElement('iframe')
+    iframe.style.display = 'none'
+    iframe.src = whatsappApp
+    document.body.appendChild(iframe)
+    
+    // Fallback to web version after a short delay
+    setTimeout(() => {
+      document.body.removeChild(iframe)
+      window.open(whatsappWeb, '_blank')
+    }, 1000)
+  } else {
+    // Desktop - open WhatsApp Web
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
+  }
+}
+
 // Add interactive wine item effects
 document.addEventListener('DOMContentLoaded', () => {
   const wineItems = document.querySelectorAll('.wine-item')
