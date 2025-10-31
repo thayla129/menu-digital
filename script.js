@@ -249,16 +249,77 @@ function toggleCaipirinhaPrices() {
   }
 }
 
-// Close dropdown when clicking outside
-document.addEventListener('click', (event) => {
-  const dropdown = document.getElementById('caipirinhaPricesDropdown')
-  const toggle = document.querySelector('.card-dropdown-toggle')
-  const card = document.querySelector('.caipirinha-card')
+// Gin Eternity dropdown functionality
+function toggleGinEternityFlavors() {
+  const dropdown = document.getElementById('ginEternityFlavorsDropdown')
+  const toggle = document.querySelector('.gin-eternity-card .card-dropdown-toggle')
   
-  if (dropdown && toggle && card) {
-    if (!card.contains(event.target)) {
+  if (dropdown && toggle) {
+    const isOpen = dropdown.classList.contains('open')
+    
+    if (isOpen) {
       dropdown.classList.remove('open')
       toggle.classList.remove('active')
+    } else {
+      dropdown.classList.add('open')
+      toggle.classList.add('active')
+    }
+  }
+}
+
+// Gin Full dropdown functionality
+function toggleGinFullFlavors() {
+  const dropdown = document.getElementById('ginFullFlavorsDropdown')
+  const toggle = document.querySelector('.gin-full-card .card-dropdown-toggle')
+  
+  if (dropdown && toggle) {
+    const isOpen = dropdown.classList.contains('open')
+    
+    if (isOpen) {
+      dropdown.classList.remove('open')
+      toggle.classList.remove('active')
+    } else {
+      dropdown.classList.add('open')
+      toggle.classList.add('active')
+    }
+  }
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (event) => {
+  // Caipirinha dropdown
+  const caipirinhaDrop = document.getElementById('caipirinhaPricesDropdown')
+  const caipirinhaToggle = document.querySelector('.caipirinha-card .card-dropdown-toggle')
+  const caipirinhaCard = document.querySelector('.caipirinha-card')
+  
+  if (caipirinhaDrop && caipirinhaToggle && caipirinhaCard) {
+    if (!caipirinhaCard.contains(event.target)) {
+      caipirinhaDrop.classList.remove('open')
+      caipirinhaToggle.classList.remove('active')
+    }
+  }
+  
+  // Gin Eternity dropdown
+  const eternityDrop = document.getElementById('ginEternityFlavorsDropdown')
+  const eternityToggle = document.querySelector('.gin-eternity-card .card-dropdown-toggle')
+  const eternityCard = document.querySelector('.gin-eternity-card')
+  
+  if (eternityDrop && eternityToggle && eternityCard) {
+    if (!eternityCard.contains(event.target)) {
+      eternityDrop.classList.remove('open')
+      eternityToggle.classList.remove('active')
+    }
+  }
+  
+  // Gin Full dropdown
+  const fullDrop = document.getElementById('ginFullFlavorsDropdown')
+  const fullToggle = document.querySelector('.gin-full-card .card-dropdown-toggle')
+  const fullCard = document.querySelector('.gin-full-card')
+  
+  if (fullDrop && fullToggle && fullCard) {
+    if (!fullCard.contains(event.target)) {
+      fullDrop.classList.remove('open')
+      fullToggle.classList.remove('active')
     }
   }
 })
