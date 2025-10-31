@@ -231,5 +231,37 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
+// Caipirinha dropdown functionality
+function toggleCaipirinhaPrices() {
+  const dropdown = document.getElementById('caipirinhaPricesDropdown')
+  const toggle = document.querySelector('.card-dropdown-toggle')
+  
+  if (dropdown && toggle) {
+    const isOpen = dropdown.classList.contains('open')
+    
+    if (isOpen) {
+      dropdown.classList.remove('open')
+      toggle.classList.remove('active')
+    } else {
+      dropdown.classList.add('open')
+      toggle.classList.add('active')
+    }
+  }
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (event) => {
+  const dropdown = document.getElementById('caipirinhaPricesDropdown')
+  const toggle = document.querySelector('.card-dropdown-toggle')
+  const card = document.querySelector('.caipirinha-card')
+  
+  if (dropdown && toggle && card) {
+    if (!card.contains(event.target)) {
+      dropdown.classList.remove('open')
+      toggle.classList.remove('active')
+    }
+  }
+})
+
 // Initialize
 updateActiveLink()

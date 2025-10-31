@@ -422,10 +422,13 @@
   
   .item-image-placeholder {
     width: 100%;
-    height: 300px;
+    height: 250px;
     overflow: hidden;
     position: relative;
     background: var(--color-gray-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .item-image-placeholder img {
@@ -434,6 +437,9 @@
     object-fit: cover;
     object-position: center;
     transition: var(--transition-slow);
+    border-radius: 0;
+    min-height: 250px;
+    max-height: 250px;
   }
   
   .menu-item:hover .item-image-placeholder img {
@@ -1388,8 +1394,16 @@
     }
     
     .item-image-placeholder {
-      height: 200px;
+      height: 180px;
       border-radius: 12px 12px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .item-image-placeholder img {
+      min-height: 180px;
+      max-height: 180px;
     }
     
     .item-content {
@@ -1521,6 +1535,123 @@
     }
   }
   
+  /* Caipirinha Card Dropdown Styles */
+  .caipirinha-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .card-dropdown-toggle {
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    color: var(--color-gold);
+    flex-shrink: 0;
+  }
+
+  .card-dropdown-toggle:hover {
+    border-color: var(--color-gold);
+    background: rgba(212, 175, 55, 0.1);
+    transform: scale(1.1);
+  }
+
+  .dropdown-arrow {
+    width: 16px;
+    height: 16px;
+    transition: var(--transition-smooth);
+  }
+
+  .card-dropdown-toggle.active .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .caipirinha-dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .caipirinha-dropdown.open {
+    max-height: 200px;
+  }
+
+  .price-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    transition: var(--transition-smooth);
+  }
+
+  .price-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .price-item:hover {
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: 5px;
+    margin: 0 -0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .flavor-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-white);
+    font-weight: 500;
+    min-width: 80px;
+  }
+
+  .flavor-dots {
+    flex: 1;
+    height: 1px;
+    background-image: linear-gradient(to right, var(--color-white) 50%, transparent 50%);
+    background-size: 6px 1px;
+    background-repeat: repeat-x;
+    margin: 0 0.8rem;
+  }
+
+  .flavor-price {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-white);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .card-dropdown-toggle {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .dropdown-arrow {
+      width: 14px;
+      height: 14px;
+    }
+    
+    .flavor-name {
+      font-size: 1rem;
+      min-width: 70px;
+    }
+    
+    .flavor-price {
+      font-size: 1rem;
+    }
+  }
+
   /* Touch-friendly improvements */
   @media (hover: none) and (pointer: coarse) {
     .menu-item:hover {
@@ -1536,5 +1667,15 @@
     .cta-button:hover {
       transform: none;
       box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    }
+    
+    .card-dropdown-toggle:hover {
+      transform: none;
+    }
+    
+    .price-item:hover {
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
     }
   }

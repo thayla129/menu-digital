@@ -721,19 +721,6 @@
 
                     <div class="menu-item" data-category="cervejas">
                         <div class="item-image-placeholder">
-                            <img src="/placeholder.svg?height=300&width=300" alt="Caipirinha">
-                        </div>
-                        <div class="item-content">
-                            <h3 class="item-name">Caipirinha</h3>
-                            <div class="item-price-line">
-                                <span class="dots"></span>
-                                <span class="item-price">R$ 14,00</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu-item" data-category="cervejas">
-                        <div class="item-image-placeholder">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZa2vAeCILwh-Nf4I3Up8TKPnZt7SegjNMLQ&s" alt="Ice">
                         </div>
                         <div class="item-content">
@@ -1189,16 +1176,36 @@
             <div class="menu-category">
                 <h3 class="category-subtitle">CAIPIRINHAS</h3>
                 <div class="menu-grid">
-                    <div class="menu-item" data-category="drinks">
+                    <div class="menu-item caipirinha-card" data-category="drinks">
                         <div class="item-image-placeholder">
                             <img src="https://cms-bomgourmet.s3.amazonaws.com/bomgourmet/2015/02/201502/bg-caipirinhas-fk-12-5a4478c0.jpg" alt="Vodka ou Velho Barreiro">
                         </div>
                         <div class="item-content">
-                            <h3 class="item-name">Vodka ou Velho Barreiro</h3>
-                            <p class="item-description">Sabores: Morango • Maracujá • Limão • Abacaxi</p>
-                            <div class="item-price-line">
-                                <span class="dots"></span>
-                                <span class="item-price">R$ 20,00</span>
+                            <div class="caipirinha-header">
+                                <h3 class="item-name">Vodka ou Velho Barreiro</h3>
+                                <button class="card-dropdown-toggle" onclick="toggleCaipirinhaPrices()" aria-label="Ver preços">
+                                    <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <div class="caipirinha-dropdown" id="caipirinhaPricesDropdown">
+                                <div class="price-item">
+                                    <span class="flavor-name">Limão</span>
+                                    <span class="flavor-dots"></span>
+                                    <span class="flavor-price">R$ 20,00</span>
+                                </div>
+                                <div class="price-item">
+                                    <span class="flavor-name">Saque</span>
+                                    <span class="flavor-dots"></span>
+                                    <span class="flavor-price">R$ 25,00</span>
+                                </div>
+                                <div class="price-item">
+                                    <span class="flavor-name">Morango</span>
+                                    <span class="flavor-dots"></span>
+                                    <span class="flavor-price">R$ 25,00</span>
+                                </div>
                             </div>
                         </div>
                     </div>
