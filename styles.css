@@ -444,7 +444,7 @@
     height: 200px;
     overflow: hidden;
     position: relative;
-    background: var(--color-gray-light);
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -476,7 +476,7 @@
     border-radius: 0;
     min-height: 180px;
     max-height: 180px;
-    background: rgba(42, 42, 42, 0.8);
+    background: #ffffff;
     padding: 8px;
     box-sizing: border-box;
   }
