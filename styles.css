@@ -397,38 +397,58 @@
     text-transform: uppercase;
   }
   
-  /* Menu Grid */
+  /* Menu Grid - Otimizado para celular */
   .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
     margin-top: 3rem;
+  }
+  
+  /* Grid responsivo para celular */
+  @media (max-width: 768px) {
+    .menu-grid {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
   }
   
   .menu-item {
     background: rgba(26, 26, 26, 0.6);
     border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
     transition: var(--transition-smooth);
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
   
   .menu-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     border-color: var(--color-gold);
-    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 12px 25px rgba(212, 175, 55, 0.2);
   }
   
+  /* Hover otimizado para celular */
+  @media (max-width: 768px) {
+    .menu-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.15);
+    }
+  }
+  
+  /* ===== PADRONIZAÇÃO DE IMAGENS PARA CELULAR ===== */
   .item-image-placeholder {
     width: 100%;
-    height: 250px;
+    height: 200px;
     overflow: hidden;
     position: relative;
     background: var(--color-gray-light);
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 12px 12px 0 0;
   }
   
   .item-image-placeholder img {
@@ -438,11 +458,15 @@
     object-position: center;
     transition: var(--transition-slow);
     border-radius: 0;
-    min-height: 250px;
-    max-height: 250px;
+    min-height: 200px;
+    max-height: 200px;
   }
 
-  /* Standard menu image sizing for consistent professional appearance */
+  /* Imagens padrão para produtos - formato profissional otimizado para celular */
+  .standard-menu-image {
+    height: 180px;
+  }
+  
   .standard-menu-image img {
     width: 100%;
     height: 100%;
@@ -450,10 +474,10 @@
     object-position: center;
     transition: var(--transition-slow);
     border-radius: 0;
-    min-height: 200px;
-    max-height: 200px;
-    background: var(--color-gray-light);
-    padding: 10px;
+    min-height: 180px;
+    max-height: 180px;
+    background: rgba(42, 42, 42, 0.8);
+    padding: 8px;
     box-sizing: border-box;
   }
   
@@ -462,7 +486,20 @@
   }
   
   .item-content {
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+  
+  /* Padding otimizado para celular */
+  @media (max-width: 768px) {
+    .item-content {
+      padding: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .item-content {
+      padding: 0.8rem;
+    }
   }
 
   /* Item content without image */
@@ -1514,7 +1551,7 @@
     }
   }
   
-  /* Mobile Menu Sections */
+  /* Mobile Menu Sections - Otimizado para celular */
   @media (max-width: 768px) {
     .section-container {
       padding: 2rem 1rem;
@@ -1532,16 +1569,17 @@
     
     .menu-grid {
       grid-template-columns: 1fr;
-      gap: 1rem;
+      gap: 1.2rem;
     }
     
     .menu-item {
       min-height: auto;
       border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     
     .item-image-placeholder {
-      height: 180px;
+      height: 160px;
       border-radius: 12px 12px 0 0;
       display: flex;
       align-items: center;
@@ -1549,8 +1587,18 @@
     }
     
     .item-image-placeholder img {
-      min-height: 180px;
-      max-height: 180px;
+      min-height: 160px;
+      max-height: 160px;
+    }
+    
+    .standard-menu-image {
+      height: 150px;
+    }
+    
+    .standard-menu-image img {
+      min-height: 150px;
+      max-height: 150px;
+      padding: 6px;
     }
     
     .item-content {
@@ -1631,7 +1679,7 @@
     }
   }
   
-  /* Small Mobile Devices (iPhone SE, etc.) */
+  /* Small Mobile Devices (iPhone SE, etc.) - Imagens ainda menores */
   @media (max-width: 480px) {
     .nav-container {
       padding: 0 0.5rem;
@@ -1656,7 +1704,26 @@
     }
     
     .menu-grid {
-      gap: 0.8rem;
+      gap: 1rem;
+    }
+    
+    .item-image-placeholder {
+      height: 140px;
+    }
+    
+    .item-image-placeholder img {
+      min-height: 140px;
+      max-height: 140px;
+    }
+    
+    .standard-menu-image {
+      height: 130px;
+    }
+    
+    .standard-menu-image img {
+      min-height: 130px;
+      max-height: 130px;
+      padding: 4px;
     }
     
     .item-content {
@@ -1841,6 +1908,48 @@
     .flavor-item {
       font-size: 0.8rem;
       padding: 0.3rem 0.6rem;
+    }
+  }
+
+  /* ===== EXCEÇÕES PARA CAIPIRINHA E SINUCA ===== */
+  /* Mantém o formato original para as imagens de Caipirinha e Sinuca */
+  .caipirinha-card .item-image-placeholder,
+  .menu-item[data-category="sinuca"] .item-image-placeholder {
+    height: 250px;
+  }
+  
+  .caipirinha-card .item-image-placeholder img,
+  .menu-item[data-category="sinuca"] .item-image-placeholder img {
+    min-height: 250px;
+    max-height: 250px;
+    object-fit: cover;
+    padding: 0;
+  }
+  
+  /* Mobile - Caipirinha e Sinuca mantêm tamanho diferenciado */
+  @media (max-width: 768px) {
+    .caipirinha-card .item-image-placeholder,
+    .menu-item[data-category="sinuca"] .item-image-placeholder {
+      height: 200px;
+    }
+    
+    .caipirinha-card .item-image-placeholder img,
+    .menu-item[data-category="sinuca"] .item-image-placeholder img {
+      min-height: 200px;
+      max-height: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .caipirinha-card .item-image-placeholder,
+    .menu-item[data-category="sinuca"] .item-image-placeholder {
+      height: 180px;
+    }
+    
+    .caipirinha-card .item-image-placeholder img,
+    .menu-item[data-category="sinuca"] .item-image-placeholder img {
+      min-height: 180px;
+      max-height: 180px;
     }
   }
 
